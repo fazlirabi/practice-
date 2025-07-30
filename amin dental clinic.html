@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amin Dental Clinic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f8fb;
+            color: #222;
+        }
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,119,182,0.07);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 2rem;
+        }
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0077b6;
+            letter-spacing: 1px;
+        }
+        .navbar nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar nav a {
+            color: #023e8a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .navbar nav a:hover {
+            color: #0077b6;
+        }
+        .navbar .nav-cta {
+            background: #0077b6;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 1.5rem;
+            transition: background 0.2s;
+        }
+        .navbar .nav-cta:hover {
+            background: #023e8a;
+        }
+        .hero {
+            background: url('https://verainterior.com/wp-content/uploads/2024/05/Dental-Clinic-Interior-Design-jpg.webp') no-repeat center center/cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 64px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 119, 182, 0.55);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+            max-width: 600px;
+        }
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        .hero-content .hero-cta {
+            background: #fff;
+            color: #0077b6;
+            border: none;
+            border-radius: 6px;
+            padding: 1rem 2.2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0,119,182,0.13);
+            transition: background 0.2s, color 0.2s;
+        }
+        .hero-content .hero-cta:hover {
+            background: #0077b6;
+            color: #fff;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1rem 1rem 1rem;
+        }
+        .section-title {
+            text-align: center;
+            color: #0077b6;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        .about-section {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,119,182,0.07);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .services-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .service-card {
+            background: #f1f8fb;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,119,182,0.08);
+            padding: 1.2rem 1rem 1.5rem 1rem;
+            text-align: center;
+            width: 220px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(0,119,182,0.18);
+        }
+        .service-card img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.7rem;
+        }
+        .service-card span {
+            display: block;
+            font-weight: bold;
+            color: #023e8a;
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: #444;
+        }
+        .service-list li {
+            font-size: 1.05rem;
+            list-style: disc inside;
+        }
+        .appointment-section {
+            background: #e0f2fe;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,119,182,0.07);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .appointment-form {
+            flex: 1 1 320px;
+            max-width: 400px;
+        }
+        .appointment-form h2 {
+            color: #0077b6;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .appointment-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .appointment-form input,
+        .appointment-form textarea {
+            padding: 0.7rem;
+            border: 1px solid #bcdff1;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: #f8fbfd;
+            resize: none;
+        }
+        .appointment-form textarea {
+            min-height: 60px;
+        }
+        .appointment-form button {
+            background: #0077b6;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.8rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .appointment-form button:hover {
+            background: #023e8a;
+        }
+        .appointment-image {
+            flex: 1 1 220px;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .appointment-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .contact-section {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,119,182,0.07);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .contact-section p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+        .footer {
+            background: #023e8a;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem 1rem 1rem;
+            margin-top: 2rem;
+        }
+        .footer .footer-links {
+            margin-bottom: 1rem;
+        }
+        .footer .footer-links a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .footer .footer-links a:hover {
+            color: #90e0ef;
+        }
+        .footer .footer-contact {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 900px) {
+            .services-gallery {
+                gap: 1.2rem;
+            }
+            .appointment-section {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                padding: 0.5rem 0.5rem;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 1rem 0.2rem;
+            }
+            .about-section, .contact-section, .appointment-section {
+                padding: 1rem;
+            }
+            .service-card {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Amin Dental Clinic</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+            <button class="nav-cta" onclick="document.getElementById('appointment').scrollIntoView({behavior: 'smooth'});">Book Appointment</button>
+        </nav>
+    </div>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your Smile, Our Passion</h1>
+            <p>Welcome to Amin Dental Clinic. Experience world-class dental care in a modern, comfortable environment. Book your appointment today!</p>
+            <button class="hero-cta" onclick="document.getElementById('appointment').scrollIntoView({behavior: 'smooth'});">Book Appointment</button>
+        </div>
+    </section>
+    <div class="container">
+        <section class="about-section" id="about">
+            <div class="section-title">About Us</div>
+            <p>Welcome to Amin Dental Clinic! We are dedicated to providing top-quality dental care in a comfortable and friendly environment. Our experienced team is here to help you achieve a healthy, beautiful smile. We use the latest technology and best practices to ensure your comfort and satisfaction.</p>
+        </section>
+        <section id="services">
+            <div class="section-title">Our Services</div>
+            <div class="services-gallery">
+                <div class="service-card">
+                    <img src="https://www.orthodontic-update.co.uk/images/article-images/OU_Feb_2018_Burden_Fig_1.jpg" alt="Orthodontic Treatment">
+                    <span>Orthodontic Treatment</span>
+                </div>
+                <div class="service-card">
+                    <img src="data:image/jpeg;base64,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" alt="Dental Implant">
+                    <span>Dental Implant</span>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1511485977113-f34a2b1aefc4?auto=format&fit=crop&w=400&q=80" alt="Root Canal Treatment (RCT)">
+                    <span>Root Canal Treatment (RCT)</span>
+                </div>
+                <div class="service-card">
+                    <img src="https://www.dentvitalis.com/images/izbjeljivanje-zuba.jpg" alt="Bleaching">
+                    <span>Bleaching</span>
+                </div>
+            </div>
+            <ul class="service-list">
+                <li>General Dentistry</li>
+                <li>Cosmetic Dentistry</li>
+                <li>Teeth Whitening</li>
+                <li>Dental Implants</li>
+                <li>Orthodontics (Braces & Aligners)</li>
+                <li>Emergency Dental Care</li>
+            </ul>
+        </section>
+        <section class="appointment-section" id="appointment">
+            <div class="appointment-form">
+                <h2>Book an Appointment</h2>
+                <form>
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="tel" name="phone" placeholder="Phone Number" required />
+                    <input type="date" name="date" required />
+                    <textarea name="message" placeholder="Message (optional)"></textarea>
+                    <button type="submit">Request Appointment</button>
+                </form>
+            </div>
+            <div class="appointment-image">
+                <img src="https://verainterior.com/wp-content/uploads/2024/05/Dental-Clinic-Interior-Design-jpg.webp" alt="Dental Clinic Interior" />
+            </div>
+        </section>
+        <section class="contact-section" id="contact">
+            <div class="section-title">Contact Us</div>
+            <p><strong>Address:</strong> Amin Dental Clinic, Amin Plaza, Opp Pakistan International Public School, Haji Camp, Peshawar</p>
+            <p><strong>Phone:</strong> 0321-9155209</p>
+            <p><strong>Email:</strong> info@amindentalclinic.com</p>
+            <p>We look forward to seeing you soon!</p>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-contact">
+            Amin Dental Clinic, Amin Plaza, Opp Pakistan International Public School, Haji Camp, Peshawar<br>
+            Phone: 0321-9155209 | Email: info@amindentalclinic.com
+        </div>
+        <div>&copy; 2024 Amin Dental Clinic. All rights reserved.</div>
+    </footer>
+</body>
+</html>
